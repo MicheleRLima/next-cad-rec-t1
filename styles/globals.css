@@ -5,6 +5,7 @@
   --font-styled: 'Lily Script One', sans-serif;
 
   --color-main-text: #000000;
+  --color-footer-text: #454242;
   --color-secondary-text: #BB371A;
   --color-main-background: #F8F0E5;
   --color-main-orange: #EBA83A;
@@ -34,5 +35,9 @@ body {
 a {
   color: var(--color-secondary-text);
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
 

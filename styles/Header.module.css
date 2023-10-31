@@ -1,5 +1,6 @@
 .header-container {
   background-color: var(--color-main-orange);
+  height: 65px;
 }
 
 .layout-container {
@@ -9,37 +10,22 @@
   padding: 1rem;
 }
 
-.btn-menu {
-  background-image: url('../public/cardapio.png');
-  border: none;
-  width: 32px;
-  height: 32px;
-  background-color: var(--color-main-orange);
-  background-size: cover;
-}
-
 .mob-container {
   display: flex;
-  width: 100vw;
+  width: 95vw;
   justify-content: flex-start;
   align-items: center;
   background-color: var(--color-main-orange);
 }
 
 .logo {
-  width: 10vw;
+  width: 34px;
   height: auto;
 }
 
 .hamb-container {
-  width: 32px;
-  padding-right: 1rem;
   width: auto;
-}
-
-.hamb-container img{
-  width: 32px;
-  height: auto;
+  padding-right: 1rem;
 }
 
 .logo-container {
@@ -54,25 +40,34 @@
   padding-left: 2rem;
 }
 
-.menu { 
+.menu {
   display: none;
 }
 
 .perfil {
   padding-left: 5px;
   background-color: var(--color-main-orange);
-
 }
 
-.perfil img{
+.perfil img {
   width: 32px;
   height: auto;
 }
 
 @media screen and (min-width: 768px) {
+  .header-container {
+    height: 150px;
+  }
+
   .layout-container {
     width: 90vw;
+    height: 150px;
     margin: auto;
+    padding: 0;
+  }
+
+  .mob-container {
+    width: fit-content;
   }
 
   .logo {
@@ -89,7 +84,7 @@
     padding-left: 15px;
   }
 
-  .perfil img{
+  .perfil img {
     width: 50px;
     height: auto;
   }
@@ -99,32 +94,36 @@
   }
 
   .menu {
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
+    display: block;
     list-style: none;
     width: 40vw;
-  }
-  
-  .menu a {
-    font-family: var(--font-main);
-    color: var(--color-main-text);
-    font-size: 16px;
-    font-weight: 600;
   }
 }
 
 @media screen and (min-width: 1024px) {
+  .header-container {
+    height: 175px;
+  }
+
   .layout-container {
     width: 80vw;
+    height: 175px;
   }
 
   .menu {
     font-size: 18px;
+    width: 27vw;
   }
 
   .logo-container h1 {
     font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .menu {
+    width: fit-content;
+    padding-left: 25rem;
   }
 }
 
@@ -134,14 +133,11 @@
   }
 
   .menu {
-    width: 20vw;
+    width: fit-content;
+    padding-left: 18rem;
   }
 
   .logo-container h1 {
     font-size: 23px;
-  }
-
-  .perfil {
-    padding-left: 40px;
   }
 }

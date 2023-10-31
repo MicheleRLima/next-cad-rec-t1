@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 import HomePageContent from '../components/HomePageContent';
 import Header from '../components/Header';
+import Footer from '@/components/Footer';
 
 function HomePage() {
   return (
@@ -16,6 +17,8 @@ function HomePage() {
       </Head>
       <Header />
       <HomePageContent />
+      <p>Destaques aqui</p>
+      <Footer />
     </Fragment>
   );
 }
