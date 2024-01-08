@@ -1,13 +1,17 @@
 .header-container {
   background-color: var(--color-main-orange);
-  height: 65px;
+  height: 70px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
 .layout-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.9rem;
 }
 
 .mob-container {

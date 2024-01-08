@@ -11,8 +11,8 @@ function MenuHamburguer() {
     setMenuState(!menuState);
   };
 
-  const closeHamburgerMenuHandler = () => {
-    setMenuState(false);
+  const closeMenuHandler = () => {
+    setMenuState(!menuState);
   };
 
   return (
@@ -28,7 +28,7 @@ function MenuHamburguer() {
           menuState ? classes['slide-active'] : classes['slide-inactive']
         }
       >
-        {menuState && <Navbar />}
+        {menuState && <Navbar onClose={closeMenuHandler} />}
       </div>
     </div>
   );

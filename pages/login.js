@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
 
-import Header from '@/components/Header';
+import Layout from '@/components/Layout';
 import LoginContent from '@/components/LoginContent';
 
 function LoginPage() {
@@ -12,8 +12,9 @@ function LoginPage() {
         <meta name='description' content='Meu caderno de receitas, login.' />
         <meta name='keywords' content='Receitas, Caderno, Culinária, Receita' />
       </Head>
-      <Header />
-      <LoginContent />
+      <Layout>
+        <LoginContent />
+      </Layout>
     </Fragment>
   );
 }

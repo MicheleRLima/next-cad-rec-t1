@@ -1,24 +1,26 @@
 .banner {
-  background-image: url('../../img/pexels-ella-olsson-1640774.jpg');
+  background-image: url('../public/pexels-ella-olsson-1640774.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 150px;
+  height: 220px;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .banner-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0;
+  padding: 5.5rem 0 1rem 0;
   justify-content: space-between;
   max-width: 170px;
 }
 
 .banner-text h2 {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-secondary-text);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   padding-bottom: 0.5rem;
@@ -35,16 +37,16 @@
 
 @media screen and (min-width: 768px) {
   .banner {
-    height: 20vh;
+    height: 37vh;
   }
 
   .banner-text {
     max-width: 325px;
-    padding: 3rem 0;
+    padding: 13rem 0 3rem 0;
   }
   
   .banner-text h2 {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .action {
@@ -55,15 +57,16 @@
 
 @media screen and (min-width: 1024px) {
   .banner {
-    height: 400px;
+    height: 460px;
   }
 
   .banner-text {
-    max-width: 555px;
+    max-width: 40vw;
+    padding: 14rem 0 2rem 0;
   }
 
   .banner-text h2 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .action {
@@ -74,12 +77,12 @@
 
 @media screen and (min-width: 1440px) {
   .banner {
-    height: 400px;
+    height: 600px;
   }
 
   .banner-text {
-    max-width: 33vw;
-    padding: 4rem 0;
+    max-width: 35vw;
+    padding: 16rem 0 4rem 0;
   }
 
   .banner-text h2 {
