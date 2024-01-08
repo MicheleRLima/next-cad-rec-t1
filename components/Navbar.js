@@ -2,9 +2,12 @@ import Link from 'next/link';
 
 import classes from '../styles/Navbar.module.css';
 
-function Navbar() {
+function Navbar(props) {
   return (
     <nav>
+      <div className={classes.close}>
+        <p onClick={props.onClose}>X</p>
+      </div>
       <ul className={classes['menu-items']}>
         <li>
           <Link href={'/'}>Home</Link>
@@ -16,7 +19,7 @@ function Navbar() {
           <Link href={'./login'}>Login</Link>
         </li>
         <li>
-          <Link href={'#'}>Cadastro</Link>
+          <Link href={'./cadastro'}>Cadastro</Link>
         </li>
       </ul>
     </nav>
