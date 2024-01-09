@@ -1,22 +1,37 @@
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 
 import Button from './button';
 
 import classes from '../../styles/form-constructor.module.css';
+import isEmail from 'validator/lib/isEmail';
 
 function FormConstructor(props) {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm();
 
-  console.log('errors: ', errors);
+  const router = useRouter();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    const userObject = data;
-    return userObject;
+  const handleOnSubmit = (data) => {
+    // console.log(data);
+
+    if (data.password !== data.confPassword) {
+      setError('confPassword', {
+        type: 'passwords',
+        message: 'As senhas não coincidem',
+      });
+      console.log(errors);
+    } else {
+      props.onSubmit(data);
+    }
+  };
+
+  const onCancel = () => {
+    router.replace('/');
   };
 
   const fields = props.formItems.map((item) => {
@@ -29,17 +44,28 @@ function FormConstructor(props) {
           type={item.inputType}
           name={item.id}
           {...register(`${item.id}`, {
-            required: `${item.required}`,
+            required: true,
             minLength: `${item.minLength}`,
+            ...(item.email
+              ? {
+                  validate: (value) => isEmail(value),
+                }
+              : {}),
           })}
         />
         {errors?.[item.id]?.type === 'required' && (
-          <p className={classes.error}>Campo obrigatório</p>
+          <p className={classes['error-text']}>Campo obrigatório</p>
         )}
         {errors?.[item.id]?.type === 'minLength' && (
-          <p className={classes.error}>
+          <p className={classes['error-text']}>
             Campo deve ter no mínimo {item.minLength} caracteres
           </p>
+        )}
+        {errors?.[item.id]?.type === 'validate' && (
+          <p className={classes['error-text']}>Formato de e-mail inválido</p>
+        )}
+        {errors?.[item.id]?.type === 'passwords' && (
+          <p className={classes['error-text']}>As senhas não coincidem</p>
         )}
       </div>
     );
@@ -48,8 +74,11 @@ function FormConstructor(props) {
   return (
     <div className={classes.fieldset}>
       {fields}
-      <div>
-        <Button onClick={handleSubmit(onSubmit)}>Cadastrar</Button>
+      <div className={classes.action}>
+        <Button onClick={handleSubmit(handleOnSubmit)}>Cadastrar</Button>
+        <Button type='button' onClick={onCancel}>
+          Cancelar
+        </Button>
       </div>
     </div>
   );
