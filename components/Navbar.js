@@ -16,10 +16,10 @@ function Navbar(props) {
           <Link href={'#'}>Receitas</Link>
         </li>
         <li>
-          <Link href={'./login'}>Login</Link>
+          <Link href={'/login'}>Login</Link>
         </li>
         <li>
-          <Link href={'./cadastro'}>Cadastro</Link>
+          <Link href={'/cadastro'}>Cadastro</Link>
         </li>
       </ul>
     </nav>

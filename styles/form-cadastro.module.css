@@ -12,8 +12,7 @@
 }
 
 .fieldset label {
-  padding-bottom: 1rem;
-  padding-left: 0.5rem;
+  padding: 1rem 0 1rem 0.5rem;
   color: var(--color-main-text);
   font-family: var(--font-main);
   font-weight: 400;
@@ -36,18 +35,37 @@
   color: var(--color-secondary-text);
 }
 
-.error-text {
-  text-align: center;
-  color: var(--color-secondary-text);
-  font-size: 12px;
-  padding-bottom: 0.5rem;
-}
-
 .fieldset .action {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 0.5rem;
+}
+
+.form-title {
+  padding: 0 0 3rem 0;
+  font-family: var(--font-styled);
+}
+
+.form-title h2 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.fieldset h3 {
+  padding: 1.5rem 0;
+  font-family: var(--font-styled);
+  font-size: 18px;
+}
+
+.fieldset .preferences {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.fieldset .preferences div {
+  display: inline-block;
 }
 
 @media screen and (min-width: 768px) {
@@ -57,6 +75,18 @@
 
   .fieldset input {
     font-size: 18px;
+  }
+
+  .fieldset h3 {
+    font-size: 25px;
+  }
+  
+  .fieldset .preferences {
+    padding: 1rem 0;
+  }
+  
+  .fieldset .preferences div {
+    padding-bottom: 1rem;
   }
 }
 

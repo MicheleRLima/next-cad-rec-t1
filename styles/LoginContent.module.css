@@ -7,6 +7,24 @@
   height: 80vh;
 }
 
+.title { 
+  padding: 1.5rem 0 3rem 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.title h1 {
+  padding-bottom: 1rem;
+  font-family: var(--font-styled);
+  color: var(--color-main-orange);
+  text-shadow: 1px 3px #ea500e;
+  text-transform: capitalize;
+}
+
+.title p {
+  opacity: 0.8;
+}
+
 .form-field {
   display: flex;
   flex-direction: column;
@@ -54,6 +72,14 @@
 
 .link-action a {
   padding-bottom: 0.5rem;
+}
+
+.form-field .error input {
+  color: var(--color-secondary-text);
+}
+
+.error {
+  color: var(--color-secondary-text);
 }
 
 @media screen and (min-width: 768px) {
