@@ -11,6 +11,11 @@
   color: var(--color-secondary-text);
 }
 
+.btn:disabled {
+  background-color: #c7c9c1;
+  color: var(--color-main-text);
+}
+
 @media screen and (min-width: 768px) {
   .btn {
     width: 10rem;
