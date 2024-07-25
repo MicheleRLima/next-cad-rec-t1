@@ -1,0 +1,135 @@
+.form-conainter {
+  margin: calc(var(--navbar-size-s) + 2rem) auto 2rem auto;
+  width: 90vw;
+  min-height: 75vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.form {
+  background-color: var(--color-white);
+  border-radius: 15px;
+  color: var(--color-main-text);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  flex-grow: 0.6;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.form div label {
+  padding-bottom: 0.5rem;
+}
+
+.form div input {
+  border-radius: 5px;
+  border: 1px, solid, var(--color-main-text);
+  padding: 5px;
+}
+
+.form div span {
+  font-size: 10px;
+  color: red;
+  padding-bottom: 0;
+}
+
+.char {
+  font-size: 10px;
+}
+
+.form div textarea {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px, solid, var(--color-main-text);
+  padding: 5px;
+}
+
+.form div input:focus, 
+.form div textarea:focus,
+.form div input:focus-visible, 
+.form div textarea:focus-visible,
+.form div input:active, 
+.form div textarea:active {
+  border: 1px solid var(--color-main-orange);
+  outline: 1px solid var(--color-main-orange);
+}
+
+.form .check {
+  flex-direction: row;
+  font-size: 12px;
+  padding: 2rem 1rem;
+  align-self: flex-start
+}
+
+.form .check label {
+  padding-bottom: 0;
+  padding-left: 0.5rem;
+}
+
+.form .action {
+  flex-direction: row;
+}
+
+@media screen and (min-width: 768px) {
+  .form-conainter {
+    margin: calc(var(--navbar-size-m) + 3rem) auto 3rem auto;
+  }
+
+  .form {
+    padding: 2rem;
+  }
+
+  .form div textarea {
+    height: 100px;
+  }
+
+  .char {
+    font-size: 12px;
+  }
+
+  .form div span {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .form-conainter {
+    margin: calc(var(--navbar-size-l) + 3rem) auto 3rem auto;
+    width: 80vw;
+  }
+
+  .form div label { 
+    font-size: 16px;
+  }
+
+  .form div textarea,
+  .form div input {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (min-width: 1440px) {
+  .form-conainter {
+    margin: calc(var(--navbar-size-l) + 4rem) auto 4rem auto;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .form-conainter {
+    width: 60vw;
+  }
+
+  .form {
+    padding: 4rem;
+  }
+}

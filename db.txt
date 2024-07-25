@@ -1,0 +1,5 @@
+
+michelelima
+94aeWHLFapmftUui
+
+mongodb+srv://michelelima:94aeWHLFapmftUui@cluster0.w5gsndh.mongodb.net/notes?retryWrites=true&w=majority&appName=Cluster0

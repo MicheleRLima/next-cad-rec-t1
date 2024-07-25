@@ -1,0 +1,44 @@
+[
+{
+  "id": "r01",
+  "title": "Panquecas de banana",
+  "image":
+    "https://blog.gsuplementos.com.br/wp-content/uploads/2022/12/panqueca-de-banana.jpg",
+    "description": "Foto da receita"
+  },
+{
+  "id": "r02",
+  "title": "Crepe salgado",
+  "image":
+    "https://img.cybercook.com.br/receitas/63/massa-para-crepe-no-palito-2.jpeg",
+  "description": "Foto da receita"
+},
+{
+  "id": "r3",
+  "title": "Feijoada",
+  "image":
+    "https://blog.biglar.com.br/wp-content/uploads/2021/10/typical-brazilian-dish-called-feijoada-made-with-black-beans-pork-sausage.jpg",
+  "description": "Foto da receita"
+},
+{
+  "id": "r4",
+  "title": "Bolo de laranja",
+  "image":
+    "https://imagens-revista.vivadecora.com.br/uploads/2021/08/Como-fazer-bolo-de-laranja-com-calda-Foto-Istock.jpg",
+  "description": "Foto da receita"
+},
+{
+  "id": "r5",
+  "title": "Pão de queijo",
+  "image":
+    "https://static.itdg.com.br/images/auto-auto/c191b11438b416fedce2c6edf6e74e3b/receitas-com-3-ingredientes.jpg",
+  "description": "Foto da receita"
+},
+{
+  "id": "r6",
+  "title": "Escondidinho de carne seca",
+  "image":
+    "https://img.nsctotal.com.br/wp-content/uploads/2022/10/shutterstock_1948419406-1-1.jpg",
+  "description": "Foto da receita"
+}
+]

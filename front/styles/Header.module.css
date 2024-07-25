@@ -1,0 +1,147 @@
+.header-container {
+  background-color: var(--color-main-orange);
+  height: var(--navbar-size-s);
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.layout-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.mob-container {
+  display: flex;
+  width: 95vw;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--color-main-orange);
+}
+
+.logo {
+  width: 34px;
+  height: auto;
+}
+
+.hamb-container {
+  width: auto;
+  padding-right: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container h1 {
+  font-size: 16px;
+  font-family: var(--font-styled);
+  padding-left: 2rem;
+}
+
+.menu {
+  display: none;
+}
+
+.perfil {
+  padding-left: 5px;
+  background-color: var(--color-main-orange);
+}
+
+.perfil img {
+  width: 32px;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    height: 150px;
+  }
+
+  .layout-container {
+    width: 90vw;
+    height: 150px;
+    margin: auto;
+    padding: 0;
+  }
+
+  .mob-container {
+    width: fit-content;
+  }
+
+  .logo {
+    width: 80px;
+    height: auto;
+    background-color: var(--color-main-orange);
+  }
+
+  .logo-container h1 {
+    font-size: 18px;
+  }
+
+  .perfil {
+    padding-left: 15px;
+  }
+
+  .perfil img {
+    width: 50px;
+    height: auto;
+  }
+
+  .hamb-container {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    list-style: none;
+    width: 40vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header-container {
+    height: 175px;
+  }
+
+  .layout-container {
+    width: 80vw;
+    height: 175px;
+  }
+
+  .menu {
+    font-size: 18px;
+    width: 27vw;
+  }
+
+  .logo-container h1 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .menu {
+    width: fit-content;
+    padding-left: 25rem;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .layout-container {
+    width: 60vw;
+  }
+
+  .menu {
+    width: fit-content;
+    padding-left: 18rem;
+  }
+
+  .logo-container h1 {
+    font-size: 23px;
+  }
+}
