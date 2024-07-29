@@ -6,6 +6,8 @@ front/node_modules
 /.pnp
 .pnp.js
 
+#especifico
+
 # testing
 /coverage
 
