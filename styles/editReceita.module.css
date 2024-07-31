@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 1rem;
 }
 
 .form div label {
@@ -32,25 +31,28 @@
 
 .form div input {
   border-radius: 5px;
-  border: 1px, solid, var(--color-main-text);
-  padding: 5px;
+  border: 1px, solid, #b3afaf;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form div span {
   font-size: 10px;
   color: red;
   padding-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .char {
   font-size: 10px;
+  margin-bottom: 1rem;
 }
 
 .form div textarea {
   height: 50px;
   border-radius: 5px;
-  border: 1px, solid, var(--color-main-text);
-  padding: 5px;
+  border: 1px, solid, #b3afaf;
+  padding: 1rem;
 }
 
 .form div input:focus, 
@@ -82,6 +84,10 @@
 @media screen and (min-width: 768px) {
   .form-conainter {
     margin: calc(var(--navbar-size-m) + 3rem) auto 3rem auto;
+  }
+
+  .form div label {
+    padding-bottom: 1rem;
   }
 
   .form {

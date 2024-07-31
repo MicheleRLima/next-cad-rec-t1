@@ -19,7 +19,7 @@ function Destaques(props) {
           ))}
         </div>
       ) : (
-        <div>
+        <div className={classes.receitas}>
           <p>Loading...</p>
         </div>
       )}

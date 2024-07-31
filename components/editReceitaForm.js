@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { recipeValidationSchema } from '@/src/services/validation/recipeValidation';
-import Button from './button';
+import Button from './UI/button';
 import classes from '@/styles/editReceita.module.css';
 
 function FormReceita() {
@@ -29,13 +29,16 @@ function FormReceita() {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const ajustedData = { ...data, description: data.title };
+    const token = localStorage.getItem('token');
+
     try {
       const response = await fetch('http://localhost:8080/receita/nova', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(ajustedData),
       });
