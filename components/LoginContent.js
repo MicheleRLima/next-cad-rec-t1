@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import isEmail from 'validator/lib/isEmail';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { useAuth } from '@/context/AuthContext';
+import { loginValidationSchema } from '@/src/services/validation/loginValidation';
 import Button from './UI/button';
 import classes from '../styles/LoginContent.module.css';
 
@@ -14,57 +13,65 @@ function LoginContent() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(loginValidationSchema),
+  });
 
-  const [loginInvalido, setLoginInvalido] = useState(false);
-
-  const { login } = useAuth();
-  const auth = getAuth();
   const router = useRouter();
-
-  const handleLogin = async (credentials) => {
-    //console.log('credenciais:', credentials);
-
-    const email = credentials.email;
-    const password = credentials.password;
-
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      const user = userCredential.user;
-      //console.log('Usuário autenticado:', user);
-      await login(user);
-
-      router.push('/perfil/' + user.uid);
-    } catch (error) {
-      const errorMessage = error.message;
-      console.log('error Messege:', errorMessage);
-
-      if (errorMessage.includes('invalid-credential')) {
-        setLoginInvalido(true);
-      }
-    }
-  };
 
   const handleCancelLogin = () => {
     router.replace('/');
   };
 
-  const handleInputChange = () => {
-    setLoginInvalido(false);
+  const onSubmitHandle = async (data) => {
+    try {
+      const response = await fetch('http://localhost:8080/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.status === 422) {
+        throw new Error('Validation failed.');
+      }
+      if (response.status === 401) {
+        throw new Error('User could not be found.');
+      }
+      if (response.status !== 200 && res.status !== 201) {
+        console.log(res.status, 'Error');
+        throw new Error('Could not authenticate!');
+      }
+
+      const result = await response.json();
+      const token = result.token;
+      const userId = result.userId;
+
+      localStorage.setItem('token', token);
+      localStorage.setItem('userId', userId);
+      const remainingMilliseconds = 60 * 60 * 1000;
+      const expiryDate = new Date(new Date().getTime() + remainingMilliseconds);
+      localStorage.setItem('expiryDate', expiryDate.toISOString());
+
+      //logica de logout
+
+      alert('Usuário logado');
+
+      router.replace('/');
+    } catch (err) {
+      alert('Login failed');
+      console.error('Error submitting the form: ', err);
+    }
   };
 
   return (
     <section className={classes['form-container']}>
-      <form>
-        <div className={classes.title}>
-          <h1>O que vamos preparar hoje?</h1>
-          <p>Abra seu caderno de receitas:</p>
-        </div>
+      <div className={classes.title}>
+        <h1>O que vamos preparar hoje?</h1>
+        <p>Abra seu caderno de receitas:</p>
+      </div>
+      <form onSubmit={handleSubmit(onSubmitHandle)}>
         <div className={classes['form-field']}>
           <label htmlFor='email'>E-mail</label>
           <input
@@ -72,16 +79,9 @@ function LoginContent() {
             name='email'
             className={errors?.email && classes.error}
             type='email'
-            {...register('email', {
-              required: 'Campo obrigatório',
-              minLength: 3,
-              validate: (value) => isEmail(value) || 'Email inválido',
-            })}
-            onChange={handleInputChange}
+            {...register('email')}
           />
-          {errors.email && (
-            <p className={classes.error}>{errors.email.message}</p>
-          )}
+          {errors.email && <p>{errors.message}</p>}
         </div>
         <div className={classes['form-field']}>
           <label htmlFor='password'>Senha</label>
@@ -90,29 +90,22 @@ function LoginContent() {
             name='password'
             className={errors?.password && classes.error}
             type='password'
-            {...register('password', {
-              required: 'Campo obrigatório',
-              minLength: {
-                value: 6,
-                message: 'A senha deve ter pelo menos 6 caracteres',
-              },
-            })}
-            onChange={handleInputChange}
+            {...register('password')}
           />
-          {errors.password && (
-            <p className={classes.error}>{errors.password.message}</p>
-          )}
-          {loginInvalido && (
-            <p className={classes.error}>Email ou senha inválidos</p>
-          )}
+          {errors.email ||
+            (errors.password && (
+              <p className={classes.error}>Email ou senha inválidos</p>
+            ))}
         </div>
         <div className={classes.action}>
-          <Button onClick={handleSubmit(handleLogin)}>Entrar</Button>
-          <Button onClick={handleCancelLogin}>Cancelar</Button>
+          <Button type={'submit'}>Entrar</Button>
+          <Button type={'button'} onClick={handleCancelLogin}>
+            Cancelar
+          </Button>
         </div>
         <div className={classes['link-action']}>
           <Link href={'/'}>Esqueci minha senha</Link>
-          <Link href={'/cadastro'}>Quero me cadastrar</Link>
+          <Link href={'/auth/signup'}>Quero me cadastrar</Link>
         </div>
       </form>
     </section>

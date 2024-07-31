@@ -1,8 +1,33 @@
+.signup {
+  width: 90vw;
+  margin: var(--navbar-size-s) auto 0;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-title {
+  padding: 2rem 0;
+  font-family: var(--font-styled);
+}
+
+.form-title h2 {
+  font-size: 20px;
+  text-align: center;
+  color: var(--color-secondary-text);
+}
+
 .fieldset {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 16px;
+  padding-bottom: 1rem;
+}
+
+.fieldset p {
+  font-size: 12px;
 }
 
 .fieldset div {
@@ -27,7 +52,8 @@
   font-size: 16px;
 }
 
-.fieldset input:focus {
+.fieldset input:focus,
+.fieldset input:active {
   border-color: var(--color-main-orange);
 }
 
@@ -39,60 +65,36 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 0.5rem;
-}
-
-.form-title {
-  padding: 0 0 3rem 0;
-  font-family: var(--font-styled);
-}
-
-.form-title h2 {
-  font-size: 20px;
-  text-align: center;
-}
-
-.fieldset h3 {
-  padding: 1.5rem 0;
-  font-family: var(--font-styled);
-  font-size: 18px;
-}
-
-.fieldset .preferences {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-}
-
-.fieldset .preferences div {
-  display: inline-block;
+  padding: 1rem 0;
 }
 
 @media screen and (min-width: 768px) {
+  .signup {
+    width: 80vw;
+    margin: var(--navbar-size-m) auto 0;
+    min-height: 70vh;
+  }
+
   .fieldset label {
     font-size: 18px;
   }
 
   .fieldset input {
-    font-size: 18px;
+    padding: 1rem;
   }
 
-  .fieldset h3 {
+  .form-title h2{
     font-size: 25px;
-  }
-  
-  .fieldset .preferences {
-    padding: 1rem 0;
-  }
-  
-  .fieldset .preferences div {
-    padding-bottom: 1rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
+  .form-title {
+    padding: 3rem 0;
+  }
+
   .fieldset label {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .fieldset input {
@@ -101,8 +103,24 @@
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .signup {
+    width: 80vw;
+    margin: var(--navbar-size-l) auto 0;
+  }
+
+  .fieldset .action {
+    padding: 3rem 0 2rem;
+  }
+ 
+}
+
 @media screen and (min-width: 2000px) {
-  .fieldset {
-    padding: 2rem;
+  .signup {
+    width: 60vw;
+  }
+
+  .fieldset .action {
+    padding: 3rem 0 2rem;
   }
 }

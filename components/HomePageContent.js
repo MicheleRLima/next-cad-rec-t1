@@ -10,7 +10,7 @@ function HomePageContent() {
           Agora você pode guardar suas receitas favoritas em um só lugar! Fácil
           de usar e fácil de encontrar.
         </h2>
-        <Link href='/login' className={classes.action}>
+        <Link href='/auth/login' className={classes.action}>
           Comece já
         </Link>
       </div>

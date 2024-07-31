@@ -1,15 +1,11 @@
-import { Fragment } from 'react';
-
+import FormReceita from '@/components/editReceitaForm';
 import Layout from '@/components/Layout';
-import FormReceita from '@/components/UI/editReceitaForm';
 
 function NovaReceita() {
   return (
-    <Fragment>
-      <Layout>
-        <FormReceita />
-      </Layout>
-    </Fragment>
+    <Layout>
+      <FormReceita />
+    </Layout>
   );
 }
 
